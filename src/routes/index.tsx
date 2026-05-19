@@ -7,45 +7,114 @@ import burgerSmall from "@/assets/burger-small.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "NOMAD Food — Burgers, Shaorma & Sandwich-uri în Bistrița" },
-      { name: "description", content: "NOMAD Food Bistrița — burgeri suculenți, shaorma autentică și sandwich-uri făcute cu drag. Fereastra ta de mâncare bună." },
+      { title: "NOMAD Food — Burrito, Sandwich & Fries în Bistrița" },
+      { name: "description", content: "NOMAD Food Bistrița — burrito, sandwich-uri, fries și băuturi reci. Mâncare bună, la fereastră." },
       { property: "og:title", content: "NOMAD Food — Bistrița" },
-      { property: "og:description", content: "Burgeri, shaorma și sandwich-uri făcute cu drag în Bistrița." },
+      { property: "og:description", content: "Burrito, sandwich-uri și fries în Bistrița." },
     ],
   }),
   component: Index,
 });
 
-const menu = {
-  Burgeri: [
-    { name: "Nomad Classic", desc: "Vită 150g, cheddar, salată, roșii, sos casă", price: "28 lei" },
-    { name: "Double Trouble", desc: "Dublu patty, dublu cheddar, bacon, ceapă caramelizată", price: "38 lei" },
-    { name: "Spicy Wanderer", desc: "Vită, jalapeño, pepper jack, sos chipotle", price: "32 lei" },
-    { name: "Chicken Crunch", desc: "Pui crocant, slaw, sos buffalo", price: "26 lei" },
-  ],
-  "Shaorma": [
-    { name: "Shaorma Clasică", desc: "Pui, salată, roșii, castraveți, varză, cartofi, sos alb", price: "22 lei" },
-    { name: "Shaorma Picantă", desc: "Pui marinat, ardei iute, sos picant", price: "24 lei" },
-    { name: "Shaorma Vită", desc: "Vită fragedă, sos de usturoi, legume proaspete", price: "28 lei" },
-    { name: "Shaorma Mixt", desc: "Pui și vită, toate de toate", price: "30 lei" },
-  ],
-  "Sandwich-uri": [
-    { name: "Club Nomad", desc: "Pui, bacon, ou, salată, roșii, maioneză", price: "24 lei" },
-    { name: "Grilled Cheese Deluxe", desc: "Trei brânzeturi topite, unt de fermă", price: "20 lei" },
-    { name: "Steak & Cheese", desc: "Vită feliată, ceapă, ardei, mozzarella", price: "30 lei" },
-    { name: "Veggie Dream", desc: "Brânză feta, avocado, legume coapte, pesto", price: "22 lei" },
-  ],
-};
+type Item = { name: string; script: string; desc?: string; gr?: string; price: string };
+type Drink = { name: string; size: string; price: string };
+
+const burrito: Item[] = [
+  { name: "Crispy", script: "Burrito", gr: "285 gr.", desc: "Lipie 90g, strips 100g, cremă brânză, dulceață ardei iute, maioneză, salată mix, porumb, ardei copt, muștar, sos burger, ceapă crispy", price: "23,99" },
+  { name: "Chicken Kebab", script: "Burrito", gr: "280 gr.", desc: "Lipie 90g, piept de pui la plită 100g, cremă brânză, salată iceberg, salată ruccola, roșii, castraveți, ardei copt, sos, ceapă caramelizată", price: "24,99" },
+  { name: "Beef Kebab", script: "Burrito", gr: "280 gr.", desc: "Lipie 90g, kebab vită la plită 100g, cremă de brânză, salată mix, ardei copt, castravete, sos special, ceapă caramelizată", price: "24,99" },
+];
+
+const sandwich: Item[] = [
+  { name: "House", script: "Sandwich", gr: "275 gr.", desc: "Chiflă 120g, file piept de pui 100g, salată iceberg 70g, castravete, roșii, maioneză, muștar dulce", price: "20,99" },
+  { name: "Panini", script: "Prosciutto", gr: "250 gr.", desc: "Chiflă 120g, brânză feta 70g, prosciutto cotto 100g, roșii, salată iceberg", price: "19,99" },
+  { name: "Nomad", script: "Snitzel", gr: "315 gr.", desc: "Chiflă 120g, șnițel de pui 100g, salată iceberg 70g, brânză cheddar, castravete, muștar dulce", price: "23,99" },
+  { name: "Nomadic", script: "cu șuncă", gr: "290 gr.", desc: "Chiflă 120g, șuncă presată 70g, brânză cheddar, castravete murat, roșii, salată", price: "16,99" },
+];
+
+const fries: Item[] = [
+  { name: "Cartofi", script: "Prăjiți", gr: "90 gr.", price: "7,00" },
+  { name: "Nomad", script: "Fries", gr: "230 gr.", desc: "Cartofi, piept de pui, bacon, sos doner", price: "24,99" },
+  { name: "Nomad", script: "Salad", gr: "280 gr.", desc: "Crispy 130g, salată mix, brânză feta, măsline negre, porumb, roșii, sos maioneză, chiflă prăjită", price: "26,99" },
+  { name: "Crispy", script: "Minibox", gr: "380 gr.", desc: "Crispy strips, cartofi prăjiți, sos la alegere", price: "29,99" },
+];
+
+const coldDrinks: Drink[] = [
+  { name: "Dorna Apă plată", size: "500ml", price: "6" },
+  { name: "Dorna Apă minerală", size: "500ml", price: "6" },
+  { name: "Coca Cola Original", size: "500ml", price: "8" },
+  { name: "Coca Cola Original", size: "330ml", price: "7" },
+  { name: "Coca Cola Zero", size: "500ml", price: "8" },
+  { name: "Coca Cola Zero", size: "330ml", price: "7" },
+  { name: "Coca Cola Lime", size: "500ml", price: "8" },
+  { name: "Coca Cola Lime", size: "330ml", price: "7" },
+  { name: "Fanta Portocale", size: "500ml", price: "8" },
+  { name: "Fanta Portocale", size: "330ml", price: "7" },
+  { name: "Fanta Madness", size: "500ml", price: "8" },
+  { name: "Fanta Madness", size: "330ml", price: "7" },
+  { name: "Sprite", size: "500ml", price: "8" },
+  { name: "Sprite", size: "330ml", price: "7" },
+];
+
+const hotDrinks: Drink[] = [
+  { name: "Espresso", size: "40ml", price: "6" },
+  { name: "Espresso Grande", size: "80ml", price: "6" },
+  { name: "Espresso cu lapte", size: "230ml", price: "7" },
+  { name: "Espresso cu lapte vegetal", size: "230ml", price: "10" },
+  { name: "Cappuccino", size: "220ml", price: "8" },
+  { name: "Cappuccino Vegetal", size: "220ml", price: "11" },
+  { name: "Latte Grande", size: "325ml", price: "8" },
+  { name: "Latte Vegetal Grande", size: "325ml", price: "11" },
+  { name: "Ceai", size: "325ml", price: "7" },
+];
+
+function PriceTag({ value }: { value: string }) {
+  return (
+    <span className="price-tag">
+      <span className="text-base md:text-lg">{value}</span>
+      <span className="ron">RON</span>
+    </span>
+  );
+}
+
+function ItemCard({ item }: { item: Item }) {
+  return (
+    <div className="relative bg-card/40 border border-border/60 rounded-2xl p-6 hover:border-primary/60 transition group">
+      <div className="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <h4 className="font-display text-3xl md:text-4xl text-primary leading-none">{item.name}</h4>
+          <p className="font-script text-3xl md:text-4xl text-foreground -mt-1">{item.script}</p>
+        </div>
+        <PriceTag value={item.price} />
+      </div>
+      {item.desc && <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>}
+      {item.gr && <p className="text-xs text-muted-foreground mt-3 font-semibold">{item.gr}</p>}
+    </div>
+  );
+}
+
+function CategoryHeader({ kicker, title }: { kicker?: string; title: string }) {
+  return (
+    <div className="text-center mb-12">
+      {kicker && <p className="eyebrow mb-4">{kicker}</p>}
+      <div className="flex items-center justify-center gap-4">
+        <span className="divider-line text-primary" />
+        <h3 className="font-display text-5xl md:text-6xl tracking-wide">{title}</h3>
+        <span className="divider-line text-primary" />
+      </div>
+    </div>
+  );
+}
 
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/70 border-b border-border">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/80 border-b border-border">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-baseline gap-2">
             <span className="font-display text-2xl tracking-wider">NOMAD</span>
-            <span className="eyebrow text-primary">food</span>
+            <span className="eyebrow">food</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium">
             <a href="#meniu" className="hover:text-primary transition">Meniu</a>
@@ -64,29 +133,34 @@ function Index() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-          <p className="font-script text-primary text-xl md:text-2xl mb-6 text-glow">made with love in Bistrița</p>
+          <div className="flex items-center justify-center gap-3 mb-6 text-primary">
+            <span className="divider-line" />
+            <span className="eyebrow text-primary">Bistrița</span>
+            <span className="divider-line" />
+          </div>
 
-          <h1 className="font-display text-[18vw] md:text-[12rem] leading-[0.85] tracking-tight">
+          <h1 className="font-display text-[18vw] md:text-[12rem] leading-[0.85] tracking-wide">
             NOMAD
             <span className="block text-primary text-glow">FOOD</span>
           </h1>
+          <p className="font-script text-4xl md:text-6xl text-foreground -mt-4 md:-mt-6">made with love</p>
 
-          <div className="relative -mt-20 md:-mt-32 flex justify-center animate-float">
+          <div className="relative mt-2 md:-mt-4 flex justify-center animate-float">
             <img
               src={heroBurger}
-              alt="Burger gigant Nomad"
+              alt="Burger Nomad"
               width={1280}
               height={1280}
-              className="w-[80vw] max-w-[600px] h-auto drop-shadow-[0_20px_60px_oklch(0.78_0.18_60/0.4)]"
+              className="w-[75vw] max-w-[560px] h-auto drop-shadow-[0_20px_60px_oklch(0.62_0.24_25/0.45)]"
             />
           </div>
 
-          <p className="eyebrow text-muted-foreground -mt-8 md:-mt-16">
-            Burgeri · Shaorma · Sandwich-uri
+          <p className="eyebrow text-muted-foreground -mt-4 md:-mt-12">
+            Burrito · Sandwich · Fries · Drinks
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <a href="#meniu" className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:scale-105 transition shadow-[0_0_40px_oklch(0.78_0.18_60/0.4)]">
+            <a href="#meniu" className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:scale-105 transition shadow-[0_0_40px_oklch(0.62_0.24_25/0.4)]">
               Vezi meniul
             </a>
             <a href="#contact" className="border border-border px-8 py-4 rounded-full font-semibold hover:bg-card transition">
@@ -100,59 +174,104 @@ function Index() {
       <section id="despre" className="py-32 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
           <p className="eyebrow mb-5">Povestea noastră</p>
-          <h2 className="font-display text-5xl md:text-7xl mb-8">FEREASTRA TA<br/>DE MÂNCARE BUNĂ</h2>
+          <h2 className="font-display text-5xl md:text-7xl mb-4 tracking-wide">FEREASTRA TA</h2>
+          <p className="font-script text-5xl md:text-6xl text-primary mb-8">de mâncare bună</p>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Suntem un mic window food din inima Bistriței. Nu avem mese de lux, nu avem chelneri în costum —
-            avem doar ingrediente proaspete, rețete făcute cu drag și o pasiune obsesivă pentru aroma perfectă.
-            Vino, ia-ți pachetul și bucură-te de fiecare îmbucătură.
+            Suntem un window food din inima Bistriței. Fără chichițe, fără pretenții —
+            doar ingrediente proaspete, rețete făcute cu drag și o pasiune obsesivă pentru aroma perfectă.
+            Vino, ia-ți pachetul și bucură-te.
           </p>
         </div>
       </section>
 
       {/* MENIU */}
       <section id="meniu" className="py-24 px-6 border-t border-border">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-20">
             <p className="eyebrow mb-4">Ce găsești la noi</p>
-            <h2 className="font-display text-6xl md:text-8xl">MENIU</h2>
+            <h2 className="font-display text-7xl md:text-9xl tracking-wide">MENIU</h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12 mb-20">
+          <div className="grid md:grid-cols-3 gap-8 mb-24">
             {[
-              { img: burgerSmall, label: "Burgeri" },
-              { img: shaormaImg, label: "Shaorma" },
-              { img: sandwichImg, label: "Sandwich-uri" },
+              { img: burgerSmall, label: "Burrito" },
+              { img: shaormaImg, label: "Sandwich" },
+              { img: sandwichImg, label: "Fries & More" },
             ].map((c) => (
               <a key={c.label} href={`#cat-${c.label}`} className="group text-center">
                 <div className="aspect-square bg-card rounded-2xl flex items-center justify-center overflow-hidden border border-border group-hover:border-primary transition">
-                  <img src={c.img} alt={c.label} width={768} height={768} loading="lazy" className="w-full h-full object-contain p-4 group-hover:scale-110 transition duration-500" />
+                  <img src={c.img} alt={c.label} width={768} height={768} loading="lazy" className="w-full h-full object-contain p-6 group-hover:scale-110 transition duration-500" />
                 </div>
-                <p className="font-display text-3xl mt-4 group-hover:text-primary transition">{c.label}</p>
+                <p className="font-display text-3xl mt-4 group-hover:text-primary transition tracking-wide">{c.label}</p>
               </a>
             ))}
           </div>
 
-          <div className="space-y-16">
-            {Object.entries(menu).map(([cat, items]) => (
-              <div key={cat} id={`cat-${cat}`}>
-                <div className="flex items-baseline gap-4 mb-8 border-b border-border pb-4">
-                  <h3 className="font-display text-4xl md:text-5xl text-primary">{cat}</h3>
-                  <span className="eyebrow text-muted-foreground">Alege favoritul</span>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-x-12 gap-y-6">
-                  {items.map((item) => (
-                    <div key={item.name} className="flex justify-between gap-4 group">
-                      <div>
-                        <h4 className="font-semibold text-lg">{item.name}</h4>
-                        <p className="text-sm text-muted-foreground">{item.desc}</p>
-                      </div>
-                      <span className="font-display text-2xl text-primary whitespace-nowrap">{item.price}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+          {/* Burrito */}
+          <div id="cat-Burrito" className="mb-24">
+            <CategoryHeader kicker="Specialitatea casei" title="BURRITO" />
+            <div className="grid md:grid-cols-2 gap-6">
+              {burrito.map((i) => <ItemCard key={i.name + i.script} item={i} />)}
+            </div>
           </div>
+
+          {/* Sandwich */}
+          <div id="cat-Sandwich" className="mb-24">
+            <CategoryHeader kicker="La fereastră" title="SANDWICH" />
+            <div className="grid md:grid-cols-2 gap-6">
+              {sandwich.map((i) => <ItemCard key={i.name + i.script} item={i} />)}
+            </div>
+          </div>
+
+          {/* Fries */}
+          <div id="cat-Fries" className="mb-24">
+            <CategoryHeader kicker="Pentru poftă" title="FRIES & MORE" />
+            <div className="grid md:grid-cols-2 gap-6">
+              {fries.map((i) => <ItemCard key={i.name + i.script} item={i} />)}
+            </div>
+          </div>
+
+          {/* Drinks */}
+          <div id="cat-Drinks" className="grid md:grid-cols-2 gap-16">
+            <div>
+              <div className="flex items-baseline gap-3 mb-6 border-b border-border pb-3">
+                <p className="font-script text-4xl text-primary">Cold</p>
+                <p className="font-script text-4xl text-foreground">Drinks</p>
+              </div>
+              <ul className="divide-y divide-border/60">
+                {coldDrinks.map((d, idx) => (
+                  <li key={idx} className="flex items-center justify-between py-2.5 text-sm">
+                    <span className="font-semibold">{d.name}</span>
+                    <span className="flex items-center gap-4">
+                      <span className="text-muted-foreground text-xs">{d.size}</span>
+                      <span className="price-tag text-xs"><span>{d.price}</span><span className="ron">RON</span></span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-[10px] text-muted-foreground mt-4">* Prețul include taxa SGR de 0,5 lei / sticlă sau doză aluminiu.</p>
+            </div>
+
+            <div>
+              <div className="flex items-baseline gap-3 mb-6 border-b border-border pb-3">
+                <p className="font-script text-4xl text-primary">Hot</p>
+                <p className="font-script text-4xl text-foreground">Drinks</p>
+              </div>
+              <ul className="divide-y divide-border/60">
+                {hotDrinks.map((d, idx) => (
+                  <li key={idx} className="flex items-center justify-between py-2.5 text-sm">
+                    <span className="font-semibold">{d.name}</span>
+                    <span className="flex items-center gap-4">
+                      <span className="text-muted-foreground text-xs">{d.size}</span>
+                      <span className="price-tag text-xs"><span>{d.price}</span><span className="ron">RON</span></span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <p className="text-center text-xs text-muted-foreground mt-16 italic">* imaginile produselor sunt cu titlu de prezentare</p>
         </div>
       </section>
 
@@ -161,7 +280,8 @@ function Index() {
         <div className="absolute inset-0 hero-glow opacity-50" />
         <div className="relative max-w-4xl mx-auto text-center">
           <p className="eyebrow mb-5">Vino la fereastră</p>
-          <h2 className="font-display text-5xl md:text-7xl mb-12">NE GĂSEȘTI ÎN<br/>BISTRIȚA</h2>
+          <h2 className="font-display text-5xl md:text-7xl mb-2 tracking-wide">NE GĂSEȘTI ÎN</h2>
+          <p className="font-script text-6xl md:text-7xl text-primary mb-12">Bistrița</p>
 
           <div className="grid md:grid-cols-3 gap-8 text-left">
             <div className="bg-card border border-border rounded-2xl p-6">
@@ -176,7 +296,7 @@ function Index() {
             </div>
             <div className="bg-card border border-border rounded-2xl p-6">
               <p className="eyebrow mb-3">Comandă</p>
-              <p className="font-display text-2xl">0744 123 456</p>
+              <p className="font-display text-2xl tracking-wide">0744 123 456</p>
               <p className="text-muted-foreground text-sm">livrare în tot orașul</p>
             </div>
           </div>
@@ -190,7 +310,7 @@ function Index() {
             <span className="font-display text-xl tracking-wider">NOMAD</span>
             <span className="eyebrow">food</span>
           </div>
-          <p className="text-sm text-muted-foreground font-script">cu drag, din Bistrița · {new Date().getFullYear()}</p>
+          <p className="font-script text-2xl text-muted-foreground">cu drag, din Bistrița · {new Date().getFullYear()}</p>
         </div>
       </footer>
     </div>

@@ -2,7 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Homemade+Apple&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sacramento&family=Inter:wght@400;500;600;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -30,8 +30,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-display: 'Anton', sans-serif;
-  --font-script: 'Homemade Apple', cursive;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-script: 'Sacramento', cursive;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -43,22 +43,22 @@
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.13 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.78 0.18 60);
-  --primary-foreground: oklch(0.08 0 0);
+  --primary: oklch(0.62 0.24 25);
+  --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.18 0 0);
   --secondary-foreground: oklch(0.98 0 0);
   --muted: oklch(0.18 0 0);
-  --muted-foreground: oklch(0.65 0 0);
-  --accent: oklch(0.78 0.18 60);
-  --accent-foreground: oklch(0.08 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.62 0.24 25);
+  --accent-foreground: oklch(0.98 0 0);
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(0.22 0 0);
   --input: oklch(0.22 0 0);
-  --ring: oklch(0.78 0.18 60);
+  --ring: oklch(0.62 0.24 25);
 
-  --glow-primary: 0 0 80px oklch(0.78 0.18 60 / 0.4);
-  --gradient-warm: radial-gradient(ellipse at center, oklch(0.25 0.08 60 / 0.6), transparent 70%);
+  --glow-primary: 0 0 80px oklch(0.62 0.24 25 / 0.4);
+  --gradient-warm: radial-gradient(ellipse at center, oklch(0.25 0.12 25 / 0.5), transparent 70%);
 }
 
 @layer base {

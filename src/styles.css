@@ -71,11 +71,24 @@
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); letter-spacing: 0.005em; font-weight: 400; }
-  .font-script { font-family: var(--font-script); line-height: 1.5; font-size: 0.95em; }
+  .font-display { font-family: var(--font-display); letter-spacing: 0.02em; font-weight: 400; }
+  .font-script { font-family: var(--font-script); line-height: 1; }
   .eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--primary); }
-  .text-glow { text-shadow: 0 0 40px oklch(0.78 0.18 60 / 0.5); }
+  .text-glow { text-shadow: 0 0 40px oklch(0.62 0.24 25 / 0.5); }
   .hero-glow { background: var(--gradient-warm); }
+  .divider-line { display: inline-block; height: 2px; width: 40px; background: currentColor; vertical-align: middle; }
+  .price-tag {
+    background: oklch(0.98 0 0);
+    color: oklch(0.13 0 0);
+    clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%);
+    padding: 0.35rem 1.1rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    line-height: 1.1;
+  }
+  .price-tag .ron { color: var(--primary); font-size: 0.7em; font-weight: 700; }
 }
 
 @keyframes float {

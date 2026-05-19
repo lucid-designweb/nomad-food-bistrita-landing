@@ -45,7 +45,7 @@ function Index() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-baseline gap-2">
             <span className="font-display text-2xl tracking-wider">NOMAD</span>
-            <span className="font-script text-primary text-lg">food</span>
+            <span className="eyebrow text-primary">food</span>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium">
             <a href="#meniu" className="hover:text-primary transition">Meniu</a>
@@ -64,7 +64,7 @@ function Index() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-          <p className="font-script text-primary text-3xl md:text-4xl mb-4 text-glow">made with love in Bistrița</p>
+          <p className="font-script text-primary text-xl md:text-2xl mb-6 text-glow">made with love in Bistrița</p>
 
           <h1 className="font-display text-[18vw] md:text-[12rem] leading-[0.85] tracking-tight">
             NOMAD
@@ -81,8 +81,8 @@ function Index() {
             />
           </div>
 
-          <p className="font-script text-2xl md:text-3xl text-muted-foreground -mt-8 md:-mt-16">
-            burgeri · shaorma · sandwich-uri
+          <p className="eyebrow text-muted-foreground -mt-8 md:-mt-16">
+            Burgeri · Shaorma · Sandwich-uri
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -99,7 +99,7 @@ function Index() {
       {/* DESPRE */}
       <section id="despre" className="py-32 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="font-script text-primary text-2xl mb-4">povestea noastră</p>
+          <p className="eyebrow mb-5">Povestea noastră</p>
           <h2 className="font-display text-5xl md:text-7xl mb-8">FEREASTRA TA<br/>DE MÂNCARE BUNĂ</h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
             Suntem un mic window food din inima Bistriței. Nu avem mese de lux, nu avem chelneri în costum —
@@ -113,7 +113,7 @@ function Index() {
       <section id="meniu" className="py-24 px-6 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-20">
-            <p className="font-script text-primary text-2xl mb-2">ce găsești la noi</p>
+            <p className="eyebrow mb-4">Ce găsești la noi</p>
             <h2 className="font-display text-6xl md:text-8xl">MENIU</h2>
           </div>
 
@@ -137,7 +137,7 @@ function Index() {
               <div key={cat} id={`cat-${cat}`}>
                 <div className="flex items-baseline gap-4 mb-8 border-b border-border pb-4">
                   <h3 className="font-display text-4xl md:text-5xl text-primary">{cat}</h3>
-                  <span className="font-script text-muted-foreground text-xl">— alege favoritul</span>
+                  <span className="eyebrow text-muted-foreground">Alege favoritul</span>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-x-12 gap-y-6">
                   {items.map((item) => (
@@ -160,22 +160,22 @@ function Index() {
       <section id="contact" className="py-32 px-6 border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 hero-glow opacity-50" />
         <div className="relative max-w-4xl mx-auto text-center">
-          <p className="font-script text-primary text-2xl mb-4">vino la fereastră</p>
+          <p className="eyebrow mb-5">Vino la fereastră</p>
           <h2 className="font-display text-5xl md:text-7xl mb-12">NE GĂSEȘTI ÎN<br/>BISTRIȚA</h2>
 
           <div className="grid md:grid-cols-3 gap-8 text-left">
             <div className="bg-card border border-border rounded-2xl p-6">
-              <p className="font-script text-primary text-xl mb-2">adresă</p>
+              <p className="eyebrow mb-3">Adresă</p>
               <p className="font-semibold">Str. Liviu Rebreanu 12</p>
               <p className="text-muted-foreground text-sm">420068 Bistrița</p>
             </div>
             <div className="bg-card border border-border rounded-2xl p-6">
-              <p className="font-script text-primary text-xl mb-2">program</p>
+              <p className="eyebrow mb-3">Program</p>
               <p className="font-semibold">Lun–Joi: 11:00 – 23:00</p>
               <p className="font-semibold">Vin–Dum: 11:00 – 02:00</p>
             </div>
             <div className="bg-card border border-border rounded-2xl p-6">
-              <p className="font-script text-primary text-xl mb-2">comandă</p>
+              <p className="eyebrow mb-3">Comandă</p>
               <p className="font-display text-2xl">0744 123 456</p>
               <p className="text-muted-foreground text-sm">livrare în tot orașul</p>
             </div>
@@ -188,9 +188,9 @@ function Index() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-baseline gap-2">
             <span className="font-display text-xl tracking-wider">NOMAD</span>
-            <span className="font-script text-primary">food</span>
+            <span className="eyebrow">food</span>
           </div>
-          <p className="text-sm text-muted-foreground font-script text-lg">cu drag, din Bistrița · {new Date().getFullYear()}</p>
+          <p className="text-sm text-muted-foreground font-script">cu drag, din Bistrița · {new Date().getFullYear()}</p>
         </div>
       </footer>
     </div>

@@ -2,7 +2,7 @@
 @source "../src";
 @import "tw-animate-css";
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Homemade+Apple&family=Inter:wght@400;500;600;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -30,8 +30,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-script: 'Caveat', cursive;
+  --font-display: 'Anton', sans-serif;
+  --font-script: 'Homemade Apple', cursive;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -71,8 +71,8 @@
 }
 
 @layer utilities {
-  .font-display { font-family: var(--font-display); letter-spacing: 0.01em; }
-  .font-script { font-family: var(--font-script); }
+  .font-display { font-family: var(--font-display); letter-spacing: 0.005em; font-weight: 400; }
+  .font-script { font-family: var(--font-script); line-height: 1.4; }
   .text-glow { text-shadow: 0 0 40px oklch(0.78 0.18 60 / 0.5); }
   .hero-glow { background: var(--gradient-warm); }
 }

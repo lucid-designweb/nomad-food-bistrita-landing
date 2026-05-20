@@ -329,6 +329,33 @@ function Index() {
         </div>
       </section>
 
+      {/* TESTIMONIALS */}
+      <section className="py-24 px-6 border-t border-border">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="eyebrow mb-4">Ce zic clienții</p>
+            <div className="flex items-center justify-center gap-4">
+              <span className="divider-line text-primary" />
+              <h2 className="font-display text-5xl md:text-6xl tracking-wide">VOCEA STRĂZII</h2>
+              <span className="divider-line text-primary" />
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { q: "Cel mai bun burrito din oraș. Mă întorc săptămânal.", a: "Andrei P.", r: "Bistrița" },
+              { q: "Crispy minibox-ul e periculos de bun. Recomand!", a: "Maria T.", r: "Centru" },
+              { q: "Comandat pe Bolt, ajuns rapid, cald și gustos.", a: "Vlad M.", r: "Independenței" },
+            ].map((t) => (
+              <div key={t.a} className="bg-card border border-border rounded-2xl p-7 hover:border-primary transition">
+                <div className="text-primary text-lg mb-3">★★★★★</div>
+                <p className="font-script text-2xl leading-snug mb-5">"{t.q}"</p>
+                <p className="font-display tracking-wider text-sm">{t.a} <span className="text-muted-foreground font-body font-normal">· {t.r}</span></p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
       <section id="contact" className="py-32 px-6 border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 hero-glow opacity-50" />

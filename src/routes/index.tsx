@@ -128,36 +128,41 @@ function Index() {
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20">
+      <section className="relative min-h-[88vh] md:min-h-[92vh] flex items-center justify-center pt-20 pb-12">
         <div className="absolute inset-0 hero-glow pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[520px] md:h-[520px] rounded-full bg-primary/10 blur-3xl" />
+
+        {/* Decorative side script */}
+        <p className="hidden lg:block absolute left-8 top-1/2 -translate-y-1/2 font-script text-2xl text-primary/40 -rotate-90 origin-left whitespace-nowrap tracking-widest">since 2023 · bistrița</p>
+        <p className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 font-script text-2xl text-primary/40 rotate-90 origin-right whitespace-nowrap tracking-widest">window · food · co.</p>
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-          <div className="flex items-center justify-center gap-3 mb-6 text-primary">
+          <div className="flex items-center justify-center gap-3 mb-5 text-primary">
             <span className="divider-line" />
-            <span className="eyebrow text-primary">Bistrița</span>
+            <span className="eyebrow text-primary">Bistrița · Window Food</span>
             <span className="divider-line" />
           </div>
 
-          <h1 className="font-display text-[18vw] md:text-[12rem] leading-[0.85] tracking-wide">
+          <h1 className="font-display text-[16vw] md:text-[8.5rem] leading-[0.85] tracking-wide">
             NOMAD
             <span className="block text-primary text-glow">FOOD</span>
           </h1>
-          <p className="font-script text-4xl md:text-6xl text-foreground -mt-4 md:-mt-6">made with love</p>
+          <p className="font-script text-4xl md:text-5xl text-foreground -mt-3 md:-mt-4">made with love</p>
 
-          <div className="relative -mt-6 md:-mt-10 flex justify-center animate-float">
+          <div className="relative -mt-4 md:-mt-8 flex justify-center animate-float">
             <img
               src={heroBurger}
               alt="Burger Nomad"
               width={1280}
               height={1280}
-              className="w-[95vw] max-w-[860px] h-auto drop-shadow-[0_30px_80px_oklch(0.62_0.24_25/0.55)]"
+              className="w-[80vw] max-w-[420px] md:max-w-[460px] h-auto drop-shadow-[0_30px_80px_oklch(0.62_0.24_25/0.55)]"
             />
           </div>
 
-          <p className="eyebrow text-muted-foreground -mt-4 md:-mt-12">
+          <p className="eyebrow text-muted-foreground -mt-2 md:-mt-6">
             Burrito · Sandwich · Fries · Drinks
           </p>
+
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a href="#meniu" className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:scale-105 transition shadow-[0_0_40px_oklch(0.62_0.24_25/0.4)]">
@@ -170,19 +175,68 @@ function Index() {
         </div>
       </section>
 
+      {/* MARQUEE */}
+      <div className="border-y border-border bg-primary text-primary-foreground overflow-hidden py-4">
+        <div className="flex gap-12 whitespace-nowrap animate-marquee font-display text-2xl md:text-3xl tracking-widest">
+          {Array.from({ length: 2 }).map((_, i) => (
+            <div key={i} className="flex gap-12 shrink-0">
+              {["INGREDIENTE PROASPETE", "★", "FĂCUT CU DRAG", "★", "LA FEREASTRĂ DIN 2023", "★", "BISTRIȚA", "★", "BURRITO · SANDWICH · FRIES", "★"].map((t, j) => (
+                <span key={j} className="shrink-0">{t}</span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* DESPRE */}
-      <section id="despre" className="py-32 px-6 border-t border-border">
-        <div className="max-w-4xl mx-auto text-center">
+      <section id="despre" className="py-28 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 hero-glow opacity-40 pointer-events-none" />
+        <div className="relative max-w-5xl mx-auto text-center">
           <p className="eyebrow mb-5">Povestea noastră</p>
           <h2 className="font-display text-5xl md:text-7xl mb-4 tracking-wide">FEREASTRA TA</h2>
           <p className="font-script text-5xl md:text-6xl text-primary mb-8">de mâncare bună</p>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
             Suntem un window food din inima Bistriței. Fără chichițe, fără pretenții —
             doar ingrediente proaspete, rețete făcute cu drag și o pasiune obsesivă pentru aroma perfectă.
             Vino, ia-ți pachetul și bucură-te.
           </p>
+
+          {/* Stats */}
+          <div className="grid grid-cols-3 gap-4 md:gap-12 mt-16 max-w-3xl mx-auto">
+            {[
+              { n: "20+", l: "Rețete pe meniu" },
+              { n: "5★", l: "Recenzii Bolt Food" },
+              { n: "100%", l: "Ingrediente fresh" },
+            ].map((s) => (
+              <div key={s.l} className="text-center">
+                <p className="font-display text-5xl md:text-6xl text-primary text-glow">{s.n}</p>
+                <p className="eyebrow mt-2 text-muted-foreground">{s.l}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
+
+      {/* FEATURES */}
+      <section className="py-20 px-6 border-t border-border">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+          {[
+            { icon: "🔥", title: "Gătit la comandă", script: "fresh", desc: "Nimic ținut pe raft. Totul plită, în clipa aia." },
+            { icon: "🌿", title: "Ingrediente locale", script: "from Bistrița", desc: "Pâine, legume și carne de la furnizori din zonă." },
+            { icon: "⚡", title: "Rapid la fereastră", script: "go!", desc: "Comanzi, iei și te-ai dus. Sau livrăm în tot orașul." },
+          ].map((f) => (
+            <div key={f.title} className="bg-card border border-border rounded-2xl p-8 hover:border-primary transition group">
+              <div className="text-4xl mb-4">{f.icon}</div>
+              <div className="flex items-baseline gap-2 mb-2">
+                <h3 className="font-display text-3xl tracking-wide group-hover:text-primary transition">{f.title}</h3>
+                <span className="font-script text-2xl text-primary">{f.script}</span>
+              </div>
+              <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
 
       {/* MENIU */}
       <section id="meniu" className="py-24 px-6 border-t border-border">
@@ -272,6 +326,33 @@ function Index() {
           </div>
 
           <p className="text-center text-xs text-muted-foreground mt-16 italic">* imaginile produselor sunt cu titlu de prezentare</p>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="py-24 px-6 border-t border-border">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="eyebrow mb-4">Ce zic clienții</p>
+            <div className="flex items-center justify-center gap-4">
+              <span className="divider-line text-primary" />
+              <h2 className="font-display text-5xl md:text-6xl tracking-wide">VOCEA STRĂZII</h2>
+              <span className="divider-line text-primary" />
+            </div>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { q: "Cel mai bun burrito din oraș. Mă întorc săptămânal.", a: "Andrei P.", r: "Bistrița" },
+              { q: "Crispy minibox-ul e periculos de bun. Recomand!", a: "Maria T.", r: "Centru" },
+              { q: "Comandat pe Bolt, ajuns rapid, cald și gustos.", a: "Vlad M.", r: "Independenței" },
+            ].map((t) => (
+              <div key={t.a} className="bg-card border border-border rounded-2xl p-7 hover:border-primary transition">
+                <div className="text-primary text-lg mb-3">★★★★★</div>
+                <p className="font-script text-2xl leading-snug mb-5">"{t.q}"</p>
+                <p className="font-display tracking-wider text-sm">{t.a} <span className="text-muted-foreground font-body font-normal">· {t.r}</span></p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

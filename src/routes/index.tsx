@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroBurger from "@/assets/hero-burger.png";
-import shaormaImg from "@/assets/shaorma.png";
-import sandwichImg from "@/assets/sandwich.png";
-import burgerSmall from "@/assets/burger-small.png";
+import catBurrito from "@/assets/cat-burrito.png";
+import catSandwich from "@/assets/cat-sandwich.png";
+import catFries from "@/assets/cat-fries.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -145,13 +145,13 @@ function Index() {
           </h1>
           <p className="font-script text-4xl md:text-6xl text-foreground -mt-4 md:-mt-6">made with love</p>
 
-          <div className="relative mt-2 md:-mt-4 flex justify-center animate-float">
+          <div className="relative -mt-6 md:-mt-10 flex justify-center animate-float">
             <img
               src={heroBurger}
               alt="Burger Nomad"
               width={1280}
               height={1280}
-              className="w-[75vw] max-w-[560px] h-auto drop-shadow-[0_20px_60px_oklch(0.62_0.24_25/0.45)]"
+              className="w-[95vw] max-w-[860px] h-auto drop-shadow-[0_30px_80px_oklch(0.62_0.24_25/0.55)]"
             />
           </div>
 
@@ -194,9 +194,9 @@ function Index() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-24">
             {[
-              { img: burgerSmall, label: "Burrito" },
-              { img: shaormaImg, label: "Sandwich" },
-              { img: sandwichImg, label: "Fries & More" },
+              { img: catBurrito, label: "Burrito" },
+              { img: catSandwich, label: "Sandwich" },
+              { img: catFries, label: "Fries & More" },
             ].map((c) => (
               <a key={c.label} href={`#cat-${c.label}`} className="group text-center">
                 <div className="aspect-square bg-card rounded-2xl flex items-center justify-center overflow-hidden border border-border group-hover:border-primary transition">
@@ -299,6 +299,28 @@ function Index() {
               <p className="font-display text-2xl tracking-wide">0744 123 456</p>
               <p className="text-muted-foreground text-sm">livrare în tot orașul</p>
             </div>
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://food.bolt.eu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#34D186] text-black px-7 py-4 rounded-full font-bold hover:scale-105 transition shadow-[0_0_30px_rgba(52,209,134,0.35)]"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+              Comandă pe Bolt Food
+            </a>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-white hover:scale-105 transition shadow-[0_0_30px_rgba(225,48,108,0.35)]"
+              style={{ background: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Urmărește-ne pe Instagram
+            </a>
           </div>
         </div>
       </section>

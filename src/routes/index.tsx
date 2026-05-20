@@ -128,36 +128,41 @@ function Index() {
       </nav>
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20">
+      <section className="relative min-h-[88vh] md:min-h-[92vh] flex items-center justify-center pt-20 pb-12">
         <div className="absolute inset-0 hero-glow pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] md:w-[520px] md:h-[520px] rounded-full bg-primary/10 blur-3xl" />
+
+        {/* Decorative side script */}
+        <p className="hidden lg:block absolute left-8 top-1/2 -translate-y-1/2 font-script text-2xl text-primary/40 -rotate-90 origin-left whitespace-nowrap tracking-widest">since 2023 · bistrița</p>
+        <p className="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 font-script text-2xl text-primary/40 rotate-90 origin-right whitespace-nowrap tracking-widest">window · food · co.</p>
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center">
-          <div className="flex items-center justify-center gap-3 mb-6 text-primary">
+          <div className="flex items-center justify-center gap-3 mb-5 text-primary">
             <span className="divider-line" />
-            <span className="eyebrow text-primary">Bistrița</span>
+            <span className="eyebrow text-primary">Bistrița · Window Food</span>
             <span className="divider-line" />
           </div>
 
-          <h1 className="font-display text-[18vw] md:text-[12rem] leading-[0.85] tracking-wide">
+          <h1 className="font-display text-[16vw] md:text-[8.5rem] leading-[0.85] tracking-wide">
             NOMAD
             <span className="block text-primary text-glow">FOOD</span>
           </h1>
-          <p className="font-script text-4xl md:text-6xl text-foreground -mt-4 md:-mt-6">made with love</p>
+          <p className="font-script text-4xl md:text-5xl text-foreground -mt-3 md:-mt-4">made with love</p>
 
-          <div className="relative -mt-6 md:-mt-10 flex justify-center animate-float">
+          <div className="relative -mt-4 md:-mt-8 flex justify-center animate-float">
             <img
               src={heroBurger}
               alt="Burger Nomad"
               width={1280}
               height={1280}
-              className="w-[95vw] max-w-[860px] h-auto drop-shadow-[0_30px_80px_oklch(0.62_0.24_25/0.55)]"
+              className="w-[80vw] max-w-[420px] md:max-w-[460px] h-auto drop-shadow-[0_30px_80px_oklch(0.62_0.24_25/0.55)]"
             />
           </div>
 
-          <p className="eyebrow text-muted-foreground -mt-4 md:-mt-12">
+          <p className="eyebrow text-muted-foreground -mt-2 md:-mt-6">
             Burrito · Sandwich · Fries · Drinks
           </p>
+
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a href="#meniu" className="bg-primary text-primary-foreground px-8 py-4 rounded-full font-semibold hover:scale-105 transition shadow-[0_0_40px_oklch(0.62_0.24_25/0.4)]">

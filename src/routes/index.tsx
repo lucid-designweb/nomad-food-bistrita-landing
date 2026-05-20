@@ -145,13 +145,13 @@ function Index() {
           </h1>
           <p className="font-script text-4xl md:text-6xl text-foreground -mt-4 md:-mt-6">made with love</p>
 
-          <div className="relative mt-2 md:-mt-4 flex justify-center animate-float">
+          <div className="relative -mt-6 md:-mt-10 flex justify-center animate-float">
             <img
               src={heroBurger}
               alt="Burger Nomad"
               width={1280}
               height={1280}
-              className="w-[75vw] max-w-[560px] h-auto drop-shadow-[0_20px_60px_oklch(0.62_0.24_25/0.45)]"
+              className="w-[95vw] max-w-[860px] h-auto drop-shadow-[0_30px_80px_oklch(0.62_0.24_25/0.55)]"
             />
           </div>
 

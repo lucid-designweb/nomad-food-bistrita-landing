@@ -300,6 +300,28 @@ function Index() {
               <p className="text-muted-foreground text-sm">livrare în tot orașul</p>
             </div>
           </div>
+
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="https://food.bolt.eu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#34D186] text-black px-7 py-4 rounded-full font-bold hover:scale-105 transition shadow-[0_0_30px_rgba(52,209,134,0.35)]"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+              Comandă pe Bolt Food
+            </a>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-white hover:scale-105 transition shadow-[0_0_30px_rgba(225,48,108,0.35)]"
+              style={{ background: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)" }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Urmărește-ne pe Instagram
+            </a>
+          </div>
         </div>
       </section>
 

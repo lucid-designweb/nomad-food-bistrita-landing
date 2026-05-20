@@ -194,9 +194,9 @@ function Index() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-24">
             {[
-              { img: burgerSmall, label: "Burrito" },
-              { img: shaormaImg, label: "Sandwich" },
-              { img: sandwichImg, label: "Fries & More" },
+              { img: catBurrito, label: "Burrito" },
+              { img: catSandwich, label: "Sandwich" },
+              { img: catFries, label: "Fries & More" },
             ].map((c) => (
               <a key={c.label} href={`#cat-${c.label}`} className="group text-center">
                 <div className="aspect-square bg-card rounded-2xl flex items-center justify-center overflow-hidden border border-border group-hover:border-primary transition">

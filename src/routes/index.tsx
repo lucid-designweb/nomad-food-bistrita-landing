@@ -151,29 +151,34 @@ function Index() {
           </h1>
           <p className="font-script text-4xl md:text-5xl text-foreground -mt-3 md:-mt-4">made with love</p>
 
-          <div className="relative mx-auto mt-2 md:mt-4 w-[92vw] max-w-[560px] md:max-w-[620px] wheel-stage">
+          <div className="relative mx-auto mt-2 md:mt-4 w-[100vw] max-w-[780px] md:max-w-[880px] wheel-stage">
             <div className="wheel-plane">
               <div className="wheel-rotor">
                 {[
                   { src: wheelBurger, alt: "Burger Nomad", angle: 0 },
                   { src: wheelWrap, alt: "Crispy chicken wrap", angle: 120 },
                   { src: wheelFries, alt: "Box cu cartofi prăjiți și crispy strips", angle: 240 },
-                ].map((it) => (
-                  <div
-                    key={it.angle}
-                    className="wheel-item"
-                    style={{ transform: `rotate(${it.angle}deg) translateY(-32%)` }}
-                  >
-                    {/* counter the item's positional rotation so it sits upright before the rotor's spin counter applies */}
-                    <div style={{ transform: `rotate(${-it.angle}deg)`, width: "100%", height: "100%" }}>
-                      <div className="wheel-counter">
-                        <div className="wheel-item-inner" style={{ animationDelay: `${(it.angle / 360) * -5}s` }}>
-                          <img src={it.src} alt={it.alt} width={1024} height={1024} />
+                ].map((it) => {
+                  // Item passes the front of the plane at t = (angle/360)*28s; fade peak (50% of keyframe) should land there.
+                  const depthDelay = -((it.angle / 360) * 28 - 14);
+                  return (
+                    <div
+                      key={it.angle}
+                      className="wheel-item"
+                      style={{ transform: `rotate(${it.angle}deg) translateY(-50%)` }}
+                    >
+                      <div style={{ transform: `rotate(${-it.angle}deg)`, width: "100%", height: "100%" }}>
+                        <div className="wheel-counter">
+                          <div className="wheel-depth" style={{ animationDelay: `${depthDelay}s` }}>
+                            <div className="wheel-item-inner" style={{ animationDelay: `${(it.angle / 360) * -5}s` }}>
+                              <img src={it.src} alt={it.alt} width={1024} height={1024} />
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
             <div className="wheel-shadow" />

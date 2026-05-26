@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import wheelBurger from "@/assets/wheel-burger.png";
-import wheelWrap from "@/assets/wheel-wrap.png";
-import wheelFries from "@/assets/wheel-fries.png";
+import heroBurger from "@/assets/hero-burger.png";
 import catBurrito from "@/assets/cat-burrito.png";
 import catSandwich from "@/assets/cat-sandwich.png";
 import catFries from "@/assets/cat-fries.png";
@@ -151,37 +149,14 @@ function Index() {
           </h1>
           <p className="font-script text-4xl md:text-5xl text-foreground -mt-3 md:-mt-4">made with love</p>
 
-          <div className="relative mx-auto mt-2 md:mt-4 w-[100vw] max-w-[780px] md:max-w-[880px] wheel-stage">
-            <div className="wheel-plane">
-              <div className="wheel-rotor">
-                {[
-                  { src: wheelBurger, alt: "Burger Nomad", angle: 0 },
-                  { src: wheelWrap, alt: "Crispy chicken wrap", angle: 120 },
-                  { src: wheelFries, alt: "Box cu cartofi prăjiți și crispy strips", angle: 240 },
-                ].map((it) => {
-                  // Item passes the front of the plane at t = (angle/360)*28s; fade peak (50% of keyframe) should land there.
-                  const depthDelay = -((it.angle / 360) * 28 - 14);
-                  return (
-                    <div
-                      key={it.angle}
-                      className="wheel-item"
-                      style={{ transform: `rotate(${it.angle}deg) translateY(-50%)` }}
-                    >
-                      <div style={{ transform: `rotate(${-it.angle}deg)`, width: "100%", height: "100%" }}>
-                        <div className="wheel-counter">
-                          <div className="wheel-depth" style={{ animationDelay: `${depthDelay}s` }}>
-                            <div className="wheel-item-inner" style={{ animationDelay: `${(it.angle / 360) * -5}s` }}>
-                              <img src={it.src} alt={it.alt} width={1024} height={1024} />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-            <div className="wheel-shadow" />
+          <div className="relative -mt-4 md:-mt-8 flex justify-center animate-float">
+            <img
+              src={heroBurger}
+              alt="Burger Nomad"
+              width={1280}
+              height={1280}
+              className="w-[80vw] max-w-[420px] md:max-w-[460px] h-auto drop-shadow-[0_30px_80px_oklch(0.62_0.24_25/0.55)]"
+            />
           </div>
 
           <p className="eyebrow text-muted-foreground -mt-2 md:-mt-6">

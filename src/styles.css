@@ -129,8 +129,8 @@
 .wheel-item {
   position: absolute;
   top: 50%; left: 50%;
-  width: 44%; aspect-ratio: 1 / 1;
-  margin-left: -22%; margin-top: -22%;
+  width: 38%; aspect-ratio: 1 / 1;
+  margin-left: -19%; margin-top: -19%;
   transform-style: preserve-3d;
 }
 .wheel-counter {
@@ -146,6 +146,18 @@
   width: 100%; height: 100%;
   animation: wheel-float 5s ease-in-out infinite;
   filter: drop-shadow(0 30px 25px rgba(0,0,0,0.55));
+}
+/* Fade items as they travel to the back of the plane (synced with rotor via animation-delay) */
+@keyframes wheel-depth {
+  0%   { opacity: 0.15; filter: blur(2px); }
+  35%  { opacity: 1;    filter: blur(0); }
+  65%  { opacity: 1;    filter: blur(0); }
+  100% { opacity: 0.15; filter: blur(2px); }
+}
+.wheel-depth {
+  width: 100%; height: 100%;
+  animation: wheel-depth 28s linear infinite;
+  transform-style: preserve-3d;
 }
 .wheel-item img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .wheel-shadow {

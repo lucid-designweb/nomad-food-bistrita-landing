@@ -107,3 +107,41 @@
   to { transform: translateX(-50%); }
 }
 .animate-marquee { animation: marquee 30s linear infinite; }
+
+/* Hero rotating wheel — 3 items on an invisible tilted plane */
+.wheel-stage { perspective: 1600px; perspective-origin: 50% 38%; }
+.wheel-plane {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg);
+}
+@keyframes wheel-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.wheel-rotor { position: absolute; inset: 0; animation: wheel-spin 28s linear infinite; transform-style: preserve-3d; }
+.wheel-item {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 44%; aspect-ratio: 1 / 1;
+  margin-left: -22%; margin-top: -22%;
+  transform-style: preserve-3d;
+}
+@keyframes wheel-float {
+  0%, 100% { transform: rotateX(-60deg) translateZ(0); }
+  50% { transform: rotateX(-60deg) translateZ(22px); }
+}
+.wheel-item-inner {
+  width: 100%; height: 100%;
+  animation: wheel-float 5s ease-in-out infinite;
+  filter: drop-shadow(0 30px 25px rgba(0,0,0,0.55));
+}
+.wheel-item img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.wheel-shadow {
+  position: absolute; left: 50%; bottom: -2%;
+  width: 70%; height: 40px; transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, oklch(0.62 0.24 25 / 0.35), transparent 70%);
+  filter: blur(20px);
+}

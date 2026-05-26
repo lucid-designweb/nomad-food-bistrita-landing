@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroBurger from "@/assets/hero-burger.png";
+import wheelBurger from "@/assets/wheel-burger.png";
+import wheelWrap from "@/assets/wheel-wrap.png";
+import wheelFries from "@/assets/wheel-fries.png";
 import catBurrito from "@/assets/cat-burrito.png";
 import catSandwich from "@/assets/cat-sandwich.png";
 import catFries from "@/assets/cat-fries.png";

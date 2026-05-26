@@ -164,8 +164,13 @@ function Index() {
                     className="wheel-item"
                     style={{ transform: `rotate(${it.angle}deg) translateY(-32%)` }}
                   >
-                    <div className="wheel-item-inner" style={{ animationDelay: `${(it.angle / 360) * -5}s` }}>
-                      <img src={it.src} alt={it.alt} width={1024} height={1024} />
+                    {/* counter the item's positional rotation so it sits upright before the rotor's spin counter applies */}
+                    <div style={{ transform: `rotate(${-it.angle}deg)`, width: "100%", height: "100%" }}>
+                      <div className="wheel-counter">
+                        <div className="wheel-item-inner" style={{ animationDelay: `${(it.angle / 360) * -5}s` }}>
+                          <img src={it.src} alt={it.alt} width={1024} height={1024} />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}

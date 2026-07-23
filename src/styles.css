@@ -107,3 +107,23 @@
   to { transform: translateX(-50%); }
 }
 .animate-marquee { animation: marquee 30s linear infinite; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 oklch(0.7 0.2 145 / 0.7); }
+  50% { opacity: 0.85; box-shadow: 0 0 0 8px oklch(0.7 0.2 145 / 0); }
+}
+.status-dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 999px;
+  background: oklch(0.72 0.2 145); animation: pulse-dot 2s ease-in-out infinite;
+}
+.status-dot.closed { background: oklch(0.6 0.02 30); animation: none; }
+
+.best-seller-badge {
+  position: absolute; top: -10px; right: 16px;
+  background: var(--primary); color: var(--primary-foreground);
+  font-family: var(--font-body); font-weight: 700; font-size: 0.6rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  padding: 0.3rem 0.7rem; border-radius: 999px;
+  box-shadow: 0 4px 20px oklch(0.62 0.24 25 / 0.5);
+}
+
